@@ -39,6 +39,15 @@
         .warning {
             color: red;
             font-weight: bold;
+            font-size: 24px;
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
         }
         .wheel-container {
             position: relative;
@@ -94,6 +103,20 @@
             justify-content: center;
             gap: 10px;
         }
+        @keyframes blink {
+            0% { background-color: #ffcccc; }
+            50% { background-color: #ff6666; }
+            100% { background-color: #ffcccc; }
+        }
+        .alert-icon {
+            font-size: 50px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -104,63 +127,63 @@
             <div class="question">
                 <label for="q1">1. 您最喜欢的颜色是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q1-red" name="q1" value="red"> 红色</label>
-                    <label><input type="radio" id="q1-blue" name="q1" value="blue"> 蓝色</label>
-                    <label><input type="radio" id="q1-green" name="q1" value="green"> 绿色</label>
-                    <label><input type="radio" id="q1-yellow" name="q1" value="yellow"> 黄色</label>
+                    <label><input type="radio" id="q1-red" name="q1" value="red" required> 红色</label>
+                    <label><input type="radio" id="q1-blue" name="q1" value="blue" required> 蓝色</label>
+                    <label><input type="radio" id="q1-green" name="q1" value="green" required> 绿色</label>
+                    <label><input type="radio" id="q1-yellow" name="q1" value="yellow" required> 黄色</label>
                 </div>
             </div>
             <div class="question">
                 <label for="q2">2. 您最喜欢的季节是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q2-spring" name="q2" value="spring"> 春天</label>
-                    <label><input type="radio" id="q2-summer" name="q2" value="summer"> 夏天</label>
-                    <label><input type="radio" id="q2-autumn" name="q2" value="autumn"> 秋天</label>
-                    <label><input type="radio" id="q2-winter" name="q2" value="winter"> 冬天</label>
+                    <label><input type="radio" id="q2-spring" name="q2" value="spring" required> 春天</label>
+                    <label><input type="radio" id="q2-summer" name="q2" value="summer" required> 夏天</label>
+                    <label><input type="radio" id="q2-autumn" name="q2" value="autumn" required> 秋天</label>
+                    <label><input type="radio" id="q2-winter" name="q2" value="winter" required> 冬天</label>
                 </div>
             </div>
             <div class="question">
                 <label for="q3">3. 您最喜欢的动物是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q3-cat" name="q3" value="cat"> 猫</label>
-                    <label><input type="radio" id="q3-dog" name="q3" value="dog"> 狗</label>
-                    <label><input type="radio" id="q3-bird" name="q3" value="bird"> 鸟</label>
-                    <label><input type="radio" id="q3-fish" name="q3" value="fish"> 鱼</label>
+                    <label><input type="radio" id="q3-cat" name="q3" value="cat" required> 猫</label>
+                    <label><input type="radio" id="q3-dog" name="q3" value="dog" required> 狗</label>
+                    <label><input type="radio" id="q3-bird" name="q3" value="bird" required> 鸟</label>
+                    <label><input type="radio" id="q3-fish" name="q3" value="fish" required> 鱼</label>
                 </div>
             </div>
             <div class="question">
                 <label for="q4">4. 您最喜欢的食物是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q4-pizza" name="q4" value="pizza"> 披萨</label>
-                    <label><input type="radio" id="q4-sushi" name="q4" value="sushi"> 寿司</label>
-                    <label><input type="radio" id="q4-burger" name="q4" value="burger"> 汉堡</label>
-                    <label><input type="radio" id="q4-noodles" name="q4" value="noodles"> 面条</label>
+                    <label><input type="radio" id="q4-pizza" name="q4" value="pizza" required> 披萨</label>
+                    <label><input type="radio" id="q4-sushi" name="q4" value="sushi" required> 寿司</label>
+                    <label><input type="radio" id="q4-burger" name="q4" value="burger" required> 汉堡</label>
+                    <label><input type="radio" id="q4-noodles" name="q4" value="noodles" required> 面条</label>
                 </div>
             </div>
             <div class="question">
                 <label for="q5">5. 您最喜欢的运动是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q5-soccer" name="q5" value="soccer"> 足球</label>
-                    <label><input type="radio" id="q5-basketball" name="q5" value="basketball"> 篮球</label>
-                    <label><input type="radio" id="q5-tennis" name="q5" value="tennis"> 网球</label>
-                    <label><input type="radio" id="q5-swimming" name="q5" value="swimming"> 游泳</label>
+                    <label><input type="radio" id="q5-soccer" name="q5" value="soccer" required> 足球</label>
+                    <label><input type="radio" id="q5-basketball" name="q5" value="basketball" required> 篮球</label>
+                    <label><input type="radio" id="q5-tennis" name="q5" value="tennis" required> 网球</label>
+                    <label><input type="radio" id="q5-swimming" name="q5" value="swimming" required> 游泳</label>
                 </div>
             </div>
             <div class="question">
                 <label for="q6">6. 您最喜欢的电影类型是什么？</label><br>
                 <div class="options">
-                    <label><input type="radio" id="q6-action" name="q6" value="action"> 动作</label>
-                    <label><input type="radio" id="q6-comedy" name="q6" value="comedy"> 喜剧</label>
-                    <label><input type="radio" id="q6-drama" name="q6" value="drama"> 剧情</label>
-                    <label><input type="radio" id="q6-sci-fi" name="q6" value="sci-fi"> 科幻</label>
+                    <label><input type="radio" id="q6-action" name="q6" value="action" required> 动作</label>
+                    <label><input type="radio" id="q6-comedy" name="q6" value="comedy" required> 喜剧</label>
+                    <label><input type="radio" id="q6-drama" name="q6" value="drama" required> 剧情</label>
+                    <label><input type="radio" id="q6-sci-fi" name="q6" value="sci-fi" required> 科幻</label>
                 </div>
             </div>
-            <button type="button" onclick="submitQuestionnaire()">提交</button>
+            <button type="submit">提交</button>
         </form>
     </div>
 
     <div class="container" id="step1" style="display: none;">
-        <h2>欢迎参加抽奖活动</h2>
+        <h2>感谢参与问卷调查，您获得了一次抽奖机会</h2>
         <p>点击按钮开始抽奖，有机会赢取大奖！</p>
         <div class="wheel-container">
             <div class="wheel" id="wheel">
@@ -178,22 +201,26 @@
     <div class="container" id="step2" style="display: none;">
         <h2>恭喜你中奖了！</h2>
         <p>请填写以下信息以领取奖品：</p>
-        <input type="text" id="name" placeholder="姓名" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-        <input type="text" id="phone" placeholder="手机号码" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-        <input type="text" id="address" placeholder="地址" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-        <button onclick="submitInfo()" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;">提交</button>
+        <form id="personalInfoForm">
+            <input type="text" id="name" placeholder="姓名" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;" required>
+            <input type="text" id="phone" placeholder="手机号码" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;" required>
+            <input type="text" id="address" placeholder="地址" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;" required>
+            <button type="submit" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;">提交</button>
+        </form>
     </div>
 
-    <div class="container" id="step3" style="display: none;">
+    <div class="container" id="step3" style="display: none; background-color: #ffcccc; animation: blink 1s infinite;">
         <h2 class="warning">你已被钓鱼网站抓住！</h2>
         <p>请注意网络安全，不要随意输入个人信息。</p>
+        <div class="alert-icon">⚠️</div>
     </div>
 
     <script>
-        function submitQuestionnaire() {
+        document.getElementById('questionnaire').addEventListener('submit', function(event) {
+            event.preventDefault();
             document.getElementById('step0').style.display = 'none';
             document.getElementById('step1').style.display = 'block';
-        }
+        });
 
         function startLottery() {
             const wheel = document.getElementById('wheel');
@@ -206,10 +233,11 @@
             }, 3000);
         }
 
-        function submitInfo() {
+        document.getElementById('personalInfoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
             document.getElementById('step2').style.display = 'none';
             document.getElementById('step3').style.display = 'block';
-        }
+        });
     </script>
 </body>
 </html>
