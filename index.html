@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络安全教育</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+        .wheel-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                red 0% 25%,
+                yellow 25% 50%,
+                green 50% 75%,
+                blue 75% 100%
+            );
+            transform: rotate(0deg);
+            transition: transform 3s ease-out;
+        }
+        .pointer {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid black;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .prize {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+            transform-origin: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        .prize1 { transform: translate(-50%, -50%) rotate(45deg) translateY(-70px); }
+        .prize2 { transform: translate(-50%, -50%) rotate(135deg) translateY(-70px); }
+        .prize3 { transform: translate(-50%, -50%) rotate(225deg) translateY(-70px); }
+        .prize4 { transform: translate(-50%, -50%) rotate(315deg) translateY(-70px); }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="step0">
+        <h2>趣味问卷</h2>
+        <p>请回答以下问题，帮助我们了解您的喜好。</p>
+        <form id="questionnaire">
+            <div class="question">
+                <label for="q1">1. 您最喜欢的颜色是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q1-red" name="q1" value="red"> 红色</label>
+                    <label><input type="radio" id="q1-blue" name="q1" value="blue"> 蓝色</label>
+                    <label><input type="radio" id="q1-green" name="q1" value="green"> 绿色</label>
+                    <label><input type="radio" id="q1-yellow" name="q1" value="yellow"> 黄色</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="q2">2. 您最喜欢的季节是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q2-spring" name="q2" value="spring"> 春天</label>
+                    <label><input type="radio" id="q2-summer" name="q2" value="summer"> 夏天</label>
+                    <label><input type="radio" id="q2-autumn" name="q2" value="autumn"> 秋天</label>
+                    <label><input type="radio" id="q2-winter" name="q2" value="winter"> 冬天</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="q3">3. 您最喜欢的动物是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q3-cat" name="q3" value="cat"> 猫</label>
+                    <label><input type="radio" id="q3-dog" name="q3" value="dog"> 狗</label>
+                    <label><input type="radio" id="q3-bird" name="q3" value="bird"> 鸟</label>
+                    <label><input type="radio" id="q3-fish" name="q3" value="fish"> 鱼</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="q4">4. 您最喜欢的食物是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q4-pizza" name="q4" value="pizza"> 披萨</label>
+                    <label><input type="radio" id="q4-sushi" name="q4" value="sushi"> 寿司</label>
+                    <label><input type="radio" id="q4-burger" name="q4" value="burger"> 汉堡</label>
+                    <label><input type="radio" id="q4-noodles" name="q4" value="noodles"> 面条</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="q5">5. 您最喜欢的运动是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q5-soccer" name="q5" value="soccer"> 足球</label>
+                    <label><input type="radio" id="q5-basketball" name="q5" value="basketball"> 篮球</label>
+                    <label><input type="radio" id="q5-tennis" name="q5" value="tennis"> 网球</label>
+                    <label><input type="radio" id="q5-swimming" name="q5" value="swimming"> 游泳</label>
+                </div>
+            </div>
+            <div class="question">
+                <label for="q6">6. 您最喜欢的电影类型是什么？</label><br>
+                <div class="options">
+                    <label><input type="radio" id="q6-action" name="q6" value="action"> 动作</label>
+                    <label><input type="radio" id="q6-comedy" name="q6" value="comedy"> 喜剧</label>
+                    <label><input type="radio" id="q6-drama" name="q6" value="drama"> 剧情</label>
+                    <label><input type="radio" id="q6-sci-fi" name="q6" value="sci-fi"> 科幻</label>
+                </div>
+            </div>
+            <button type="button" onclick="submitQuestionnaire()">提交</button>
+        </form>
+    </div>
+
+    <div class="container" id="step1" style="display: none;">
+        <h2>欢迎参加抽奖活动</h2>
+        <p>点击按钮开始抽奖，有机会赢取大奖！</p>
+        <div class="wheel-container">
+            <div class="wheel" id="wheel">
+                <div class="prize prize1">一等奖</div>
+                <div class="prize prize2">谢谢参与</div>
+                <div class="prize prize3">二等奖</div>
+                <div class="prize prize4">谢谢参与</div>
+            </div>
+            <div class="pointer"></div>
+        </div>
+        <button onclick="startLottery()">开始抽奖</button>
+    </div>
+    
+
+    <div class="container" id="step2" style="display: none;">
+        <h2>恭喜你中奖了！</h2>
+        <p>请填写以下信息以领取奖品：</p>
+        <input type="text" id="name" placeholder="姓名" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        <input type="text" id="phone" placeholder="手机号码" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        <input type="text" id="address" placeholder="地址" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        <button onclick="submitInfo()" style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;">提交</button>
+    </div>
+
+    <div class="container" id="step3" style="display: none;">
+        <h2 class="warning">你已被钓鱼网站抓住！</h2>
+        <p>请注意网络安全，不要随意输入个人信息。</p>
+    </div>
+
+    <script>
+        function submitQuestionnaire() {
+            document.getElementById('step0').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+        }
+
+        function startLottery() {
+            const wheel = document.getElementById('wheel');
+            wheel.style.transform = 'rotate(1070deg)';
+            setTimeout(() => {
+                setTimeout(() => {
+                    document.getElementById('step1').style.display = 'none';
+                    document.getElementById('step2').style.display = 'block';
+                }, 500);
+            }, 3000);
+        }
+
+        function submitInfo() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
